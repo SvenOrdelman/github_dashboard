@@ -1,0 +1,17 @@
+<div class="container mx-auto">
+  <h1 class="text-4xl font-bold text-gray-800 mb-2 mt-4">Github Dashboard</h1>
+  <%= turbo_frame_tag "quick_links", src: quick_links_path, class: "m-4" %>
+  <div class="flex flex-wrap gap-4">
+    <% Dashboard.all.each do |dashboard| %>
+      <%= render 'dashboard_base', url: dashboard_path(dashboard) %>
+    <% end %>
+
+    <%= render 'dashboard_base' do %>
+      <div class="w-full h-full flex justify-center items-center">
+        <%= link_to new_dashboard_path, class: "bg-gray-300 hover:bg-gray-400 hover:cursor-pointer text-gray-800 font-bold py-4 px-4 rounded-full inline-flex items-center" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

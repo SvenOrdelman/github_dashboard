@@ -1,0 +1,5 @@
+<div class="flex-1 min-w-full lg:min-w-[calc(50%-1rem)] lg:max-w-[calc(50%-1rem)] min-h-[300px] border-2 border-gray-300 rounded-2xl bg-white relative">
+  <turbo-frame id="dashboard" src="<%= local_assigns[:url] if local_assigns[:url].present? %>">
+    <%= yield %>
+  </turbo-frame>
+</div>

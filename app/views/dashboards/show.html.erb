@@ -1,0 +1,35 @@
+<turbo-frame id="dashboard">
+  <div class="container mx-auto relative" data-refresh-url="<%= request.url %>" data-controller="refresh">
+    <%= link_to edit_dashboard_path(@dashboard), class: "absolute border hover:bg-gray-400 hover:cursor-pointer text-gray-500 font-bold py-2 px-2 right-2 top-2 rounded-full inline-flex items-center" do %>
+      <i class="fa-solid fa-pencil text-gray-500"></i>
+    <% end %>
+      <h1 class="text-xs p-4 text-gray-500 bg-gray-300 rounded-t-xl"><%= @dashboard.query %></h1>
+
+      <table class="w-full">
+        <tbody>
+          <% results = @dashboard.query_results(page: @page) %>
+          <% if results.any? %>
+            <%= render results %>
+          <% else %>
+            <tr>
+              <td class="p-8">
+                <div class="flex flex-col items-center justify-center text-gray-500">
+                  <i class="fa-solid fa-check-circle text-4xl mb-4"></i>
+                  <p class="text-lg">You're all caught up! 🎉</p>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% if @dashboard.query_results.size == 5 %>
+        <div class="flex justify-between m-4">
+          <% if @page && @page > 1 %>
+            <%= link_to "Previous", dashboard_path(@dashboard, page: @page - 1), class: "bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded" %>
+          <% end %>
+          <%= link_to "Next", dashboard_path(@dashboard, page: (@page || 1) + 1), class: "bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded ml-auto" %>
+        </div>
+      <% end %>
+    </div>
+</turbo-frame>
+

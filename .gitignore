@@ -1,0 +1,56 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials
+/config/master.key
+
+# Ignore database configuration
+/config/database.yml
+
+# Ignore environment variables
+.env
+.env.*
+
+# Ignore public uploads
+/public/uploads
+
+# Ignore node modules
+/node_modules
+
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore coverage reports
+/coverage/*
+
+# Ignore precompiled assets
+/public/assets
+/public/packs
+/public/packs-test
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore RSpec state
+spec/examples.txt
+
+# Ignore byebug history
+.byebug_history
+
+# Ignore redis dump file
+dump.rdb
+
+# Ignore Spring files
+/spring/*.pid

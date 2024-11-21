@@ -1,0 +1,21 @@
+<turbo-frame id="quick_links">
+  <div class="flex flex-wrap gap-1">
+    <% @quick_links.each do |quick_link| %>
+      <%= render 'quick_link', quick_link: quick_link %>
+    <% end %>
+
+    <div data-controller="quick-link-form" class="flex justify-center items-center h-10 p-2 px-3 rounded-full bg-gray-300 group text-m">
+      <div data-quick-link-form-target="button" data-action="click->quick-link-form#showForm" class="cursor-pointer">
+        <i class="fa-solid fa-plus text-gray-600"></i>
+      </div>
+
+      <div data-quick-link-form-target="form" class="hidden">
+        <%= form_with model: QuickLink.new, class: "flex items-center p-2 rounded-full" do |f| %>
+          <%= f.text_field :name, placeholder: "Name", class: "bg-transparent outline-none border-none w-32 h-8" %>
+          <div class="w-px h-8 bg-gray-400 mx-2"></div>
+          <%= f.text_field :url, placeholder: "URL", class: "bg-transparent outline-none border-none w-32 h-8" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</turbo-frame>

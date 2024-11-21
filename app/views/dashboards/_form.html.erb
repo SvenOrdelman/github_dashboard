@@ -1,0 +1,14 @@
+<%= form_for(@dashboard, class: "w-full max-w-2xl px-8", data: { turbo_frame: "_top" }) do |f| %>
+  <div class="mb-4">
+    <%= f.text_field :query, 
+        class: "shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+        placeholder: "Enter your github query..." %>
+  </div>
+  <div class="mb-4 flex items-center">
+    <%= f.check_box :track_notifications, class: "h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" %>
+    <%= f.label :track_notifications, "Track notifications for this dashboard", class: "ml-2 block text-sm text-gray-900" %>
+  </div>
+  <div class="flex items-center justify-end">
+    <%= f.submit "Save", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>

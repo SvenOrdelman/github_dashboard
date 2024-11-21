@@ -1,0 +1,8 @@
+<turbo-frame id="dashboard">
+  <div class="w-full h-full p-16">
+    <%= link_to dashboard_path(@dashboard), class: "absolute border border-blue-500 hover:bg-blue-400 hover:cursor-pointer text-blue-500 font-bold p-2 right-2 top-2 rounded-full inline-flex items-center justify-center h-8 w-8" do %>
+      <i class="fa-solid fa-xmark text-blue-500"></i>
+    <% end %>
+    <%= render 'form' %>
+  </div>
+</turbo-frame>
