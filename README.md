@@ -3,7 +3,7 @@
 </div>
 
 # Github Dashboard
-A Progressive Web App (PWA) that transforms how you interact with GitHub by providing a customizable dashboard with desktop notifications. This app streamlines your GitHub workflow through two powerful features:
+A Rails application that can be installed as a Progressive Web App (PWA), transforming how you interact with GitHub through a customizable dashboard with desktop notifications.
 
 <div align="center">
   <img src="app/assets/images/github_dashboard.png" alt="Github Dashboard Screenshot">
@@ -37,3 +37,51 @@ Each dashboard can be configured to show badge notifications, allowing you to mo
 - 📋 Monitor the count of open issues assigned to you
 
 These badge notifications update automatically, ensuring you never miss important updates without having to constantly check GitHub.
+
+# 🛠️ Installation
+
+### Prerequisites
+- Ruby 3.2.2 or higher
+- PostgreSQL 12 or higher
+
+### Setup Steps
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   bundle install
+   yarn install
+   ```
+3. Add your GitHub access token to your environment:
+   ```bash
+   echo 'export GITHUB_TOKEN="your-token-here"' >> ~/.zprofile
+   source ~/.zprofile
+   ```
+
+   To get your GitHub access token:
+   1. Go to GitHub.com and click your profile picture
+   2. Go to Settings > Developer settings > Personal access tokens > Tokens (classic)
+   3. Click "Generate new token (classic)"
+   4. Give it a descriptive name like "Github Dashboard"
+   5. Select these scopes:
+      - `repo` - Full control of private repositories
+      - `notifications` - Access notifications
+      - `read:org` - Read org and team membership
+   6. Click "Generate token"
+   7. Copy the token and paste it in your .zprofile file
+   
+   ⚠️ Make sure to save the token somewhere safe as GitHub will only show it once!
+4. Start the Rails server:
+   ```bash
+   rails server
+   ```
+   
+   The application will now be available at `http://127.0.0.1:3000`
+   
+5. To install as a Progressive Web App in Chrome:
+   1. Visit the application URL in Chrome
+   2. Click the "Install" icon in the address bar (looks like a computer monitor with a down arrow)
+   3. Click "Install" in the popup dialog
+   4. The app will now be available as a standalone application on your computer
+
+

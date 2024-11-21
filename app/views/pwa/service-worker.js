@@ -17,5 +17,8 @@ async function fetchCount() {
 // Fetch initial count
 fetchCount();
 
-// Update count every 10 seconds
-setInterval(fetchCount, 10000);
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'periodicSync') {
+    event.waitUntil(fetchCount());
+  }
+});

@@ -11,4 +11,9 @@ if ('serviceWorker' in navigator) {
     .catch(function(error) {
       console.log('Service Worker registration failed:', error);
     });
+
+    navigator.serviceWorker.ready.then((registration) => {
+      console.log('sync')
+      return registration.sync.register('periodicSync');
+    });
 }
