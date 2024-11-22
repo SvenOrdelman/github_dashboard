@@ -7,13 +7,24 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
     .then(function(registration) {
       console.log('Service Worker registered with scope:', registration.scope);
+      registration.sync.register('periodicSync');
     })
     .catch(function(error) {
       console.log('Service Worker registration failed:', error);
     });
 
-    navigator.serviceWorker.ready.then((registration) => {
-      console.log('sync')
-      return registration.sync.register('periodicSync');
-    });
+
+    setInterval(async () => {
+      try {
+        const response = await fetch('/notifications/count');
+        const data = await response.json();
+        console.log('Foreground update count:', data.count);
+
+        if (navigator.setAppBadge) {
+          navigator.setAppBadge(data.count);
+        }
+      } catch (error) {
+        console.error('Error fetching notification count (foreground):', error);
+      }
+    }, 20000);
 }

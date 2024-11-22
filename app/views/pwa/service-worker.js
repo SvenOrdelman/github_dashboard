@@ -19,6 +19,6 @@ fetchCount();
 
 self.addEventListener('sync', (event) => {
   if (event.tag === 'periodicSync') {
-    event.waitUntil(fetchCount());
+    event.waitUntil(fetchCount().catch(err => console.error('Sync failed:', err)));
   }
 });
