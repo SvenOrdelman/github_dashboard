@@ -18,7 +18,7 @@ Customize your top navigation bar with shortcuts to any GitHub pages you frequen
 Harness the power of GitHub's search syntax to create personalized notification feeds.
 
 #### Example Queries:
-- 📬 Stay on top of notifications with `notifications is:unread`
+- 📬 Stay on top of notifications with `is:notification is:unread`
 - 👀 Monitor incoming review requests with `is:pr requested-review:<your-username>`
 - ✅ Track issues assigned to you with `is:issue assignee:<your-username>`
 - 📊 Follow specific repository activity with `repo:<owner>/<repo> is:open`

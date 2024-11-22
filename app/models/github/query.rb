@@ -8,7 +8,7 @@ module Github
     end
 
     def query_results(page)
-      if dashboard.query.start_with?("notifications")
+      if dashboard.query.include?("is:notification")
         search_notifications(page)
       else
         search_issues(page)
@@ -16,7 +16,7 @@ module Github
     end
 
     def count
-      if dashboard.query.start_with?("notifications")
+      if dashboard.query.include?("is:notification")
         notification_query(1, per_page: 50).count
       else
         Client.new.search_issues(dashboard.query)[:total_count].to_i
