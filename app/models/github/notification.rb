@@ -16,7 +16,7 @@ module Github
     end
 
     def url
-      issue[:subject][:url].gsub("api.github.com/repos", "github.com").gsub("/pulls/", "/pull/")
+      issue[:subject][:url]&.gsub("api.github.com/repos", "github.com")&.gsub("/pulls/", "/pull/")
     end
 
     def unread?
